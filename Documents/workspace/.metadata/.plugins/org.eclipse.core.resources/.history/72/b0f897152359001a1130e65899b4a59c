@@ -1,0 +1,50 @@
+package com.android.Servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Login extends HttpServlet {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		Connection con;
+		Statement sql;
+		String id = request.getParameter("id").trim();
+		String password = request.getParameter("passwd").trim();
+		String uri="jdbc:mysql://localhost/servicedata";
+		try{
+			con = DriverManager.getConnection(uri,"root","123456");
+			String condition = "select * from userinfo where id = '"+id+"' and passwd = '"+password+"'";
+			sql = con.prepareStatement(condition);
+			ResultSet rSet = sql.executeQuery(condition);
+			if(rSet.next()) {
+				out.println("login successfully!");
+			}
+			else {
+				out.println("can not login!");
+			}
+			con.close();		
+		} catch(SQLException ex){
+			ex.printStackTrace();
+		}
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+}

@@ -1,0 +1,7 @@
+127.0.0.1 - - [01/Mar/2020:11:39:21 +0800] "GET / HTTP/1.1" 404 676
+0:0:0:0:0:0:0:1 - - [01/Mar/2020:11:39:29 +0800] "GET /AndroidServer/ HTTP/1.1" 200 491
+0:0:0:0:0:0:0:1 - - [01/Mar/2020:11:39:29 +0800] "GET /favicon.ico HTTP/1.1" 404 687
+0:0:0:0:0:0:0:1 - - [01/Mar/2020:11:39:33 +0800] "POST /AndroidServer/LoginServlet HTTP/1.1" 200 17
+127.0.0.1 - - [01/Mar/2020:12:23:10 +0800] "POST /AndroidServer/LoginServlet HTTP/1.1" 200 16
+127.0.0.1 - - [01/Mar/2020:12:23:19 +0800] "POST /AndroidServer/LoginServlet HTTP/1.1" 200 17
+127.0.0.1 - - [01/Mar/2020:12:26:43 +0800] "POST /AndroidServer/LoginServlet HTTP/1.1" 200 17
